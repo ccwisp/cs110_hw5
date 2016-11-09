@@ -1,0 +1,89 @@
+<head>
+   
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>Homework#5</title>
+</head>
+<body>
+<h1> Here are my bouncing boxes </h1>
+<canvas id="canvas" width="500" height="300"></canvas>
+
+
+<script>
+
+ 
+
+let canvas = document.getElementById("canvas");
+
+let context = canvas.getContext("2d");
+
+
+const NUM_POINTS = 66; // play with this after you finished implementing draw, it's fun :-)
+
+
+// create points
+
+const points = [];
+
+for(let i = 0; i < NUM_POINTS; i++) {
+
+  points.push({
+
+    x: Math.random() * canvas.width,
+
+    y: Math.random() * canvas.height,
+
+    width: Math.random() * 10,
+
+    height: Math.random() * 10,
+
+    xDelta: 1, // the change that you will add to x, you can flip it when you get to the edge
+
+    yDelta: 1, // the change that you will add to y, you can flip it when you get to the edge
+
+    color: 'red'
+
+  });
+
+}
+
+
+const draw = function() {
+
+  
+
+    context.clearRect(0,0,canvas.width,canvas.height)                                     
+
+     points.forEach(function(point) {                                                            
+context.fillStyle=point.color;
+context.fillRect(point.x,point.y,point.width,point.height)     ;                              
+if (point.x >= canvas.width || point.x <= 0) { point.xDelta *= -1}
+if (point.y >= canvas.height || point.y <= 0) { point.yDelta *= -1}
+ point.x += point.xDelta;
+ point.y += point.yDelta;
+ });
+
+                           
+
+  //      2. check if the point has gone beyond left or right part of the canvas - if so, flip xDelta
+
+  //      3. check if the point has gone beyond the top or bottom of the canvas - if so, flip the yDelta
+
+  //      4. add the point's xDelta and yDelta to the point's x and y
+
+};
+
+
+let animate = function() {
+
+    draw();
+
+    setTimeout(animate, 10);
+
+};
+
+animate();
+
+
+</script>
+</body>

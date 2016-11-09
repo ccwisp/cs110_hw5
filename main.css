@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'skyrimfont';
+    src: url("RINGM___.ttf"); 
+}
+html
+{
+    cursor: url(http://cur.cursors-4u.net/games/gam-14/gam1394.cur), progress !important;
+}
+body {
+
+
+
+    font-family: skyrimfont;
+    color: darkgrey;
+    position: absolute;
+    left: 63%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+
+    /*
+    This doesn't work
+    margin-left: -25%;
+    margin-top: -25%;
+    */
+
+    width: 60%;
+    height: 50%;
+
+    background-image: url("skyrim.jpg");
+
+    background-size:cover;
+}
